@@ -1,8 +1,7 @@
 <template>
     <div class="wrapper">
-        
-        <hero-view />
-        <footer-component />
+       <router-view></router-view>
+       <footer-component />
     </div>
 </template>
 
