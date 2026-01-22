@@ -10,7 +10,7 @@
                 <router-link to="/our-coffee">Our coffee</router-link>
             </li>
             <li class="header__item">
-                <router-link to="/">For your pleasure</router-link>
+                <router-link to="/goodspage">For your pleasure</router-link>
                
             </li>
             <li class="header__item">
