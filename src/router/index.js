@@ -13,26 +13,11 @@ Vue.use(VueRouter)
 const router = new VueRouter ({
   mode:'history',
   routes: [
-    {
-      path:'/',
-      component: HeroView
-    },
-        {
-      path:'/contacts',
-      component: ContactUs
-    },
-        {
-      path:'/our-coffee',
-      component: OurCoffeeView
-    },
-    {
-      path:'/goodspage',
-      component: ForYourPleasure
-    },
-    {
-      path:'/thanks',
-      component: ThankYouPage
-    },
+    { path:'/', component: HeroView},
+    { path:'/contacts', component: ContactUs},
+    { path:'/our-coffee', component: OurCoffeeView},
+    { path:'/goodspage', component: ForYourPleasure},
+    { path:'/thanks', component: ThankYouPage },
   ]
 })
 
