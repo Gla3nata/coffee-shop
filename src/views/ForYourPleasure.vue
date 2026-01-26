@@ -36,12 +36,42 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <product-card />
-                            <product-card />
-                            <product-card />
-                            <product-card />
-                            <product-card />
-                            <product-card />
+                            <product-card 
+                             classItem="shop__item"
+                           :name="goods[0].name"
+                           :price="goods[0].price"
+                           :image="goods[0].image"
+                           />
+                            <product-card 
+                             classItem="shop__item"
+                            :name="goods[1].name"
+                           :price="goods[1].price"
+                           :image="goods[1].image"
+                           />
+                            <product-card 
+                             classItem="shop__item"
+                            :name="goods[2].name"
+                           :price="goods[2].price"
+                           :image="goods[2].image"
+                           />
+                            <product-card 
+                             classItem="shop__item"
+                           :name="goods[3].name"
+                           :price="goods[3].price"
+                           :image="goods[3].image"
+                           />
+                            <product-card 
+                             classItem="shop__item"
+                            :name="goods[4].name"
+                           :price="goods[4].price"
+                           :image="goods[4].image"
+                           />
+                            <product-card 
+                             classItem="shop__item"
+                            :name="goods[5].name"
+                           :price="goods[5].price"
+                           :image="goods[5].image"
+                           />
                         </div>
                     </div>
                 </div>
@@ -62,7 +92,7 @@ export default {
     },
     data() {
         return {
-            coffee: [
+            goods: [
                 {
                     id: 0,
                     name:'Solimo Coffee Beans 2kg',
@@ -82,19 +112,19 @@ export default {
                      image: 'coffee-3.jpg'
                 },
                                 {
-                    id: 0,
+                    id: 3,
                     name:'Espresso Intenso Instant Coffee 0,5kg',
                     price: 17.73,
                     image: 'coffee-1.jpg'
                 },
                 {
-                    id: 1,
+                    id: 4,
                     name:'House Espresso 2kg',
                     price: 35.99,
                      image: 'coffee-2.jpg'
                 },
                 {
-                    id: 2,
+                    id:5,
                     name:'Espresso Intenso 3kg',
                     price: 8.12,
                      image: 'coffee-3.jpg'
