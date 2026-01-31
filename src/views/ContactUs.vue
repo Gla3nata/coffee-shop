@@ -16,7 +16,11 @@
                     <div class="col col-12 col-lg-6 offset-0 offset-lg-3">
                         <div class="title mt-5">Tell us about your tastes</div>
                         <img class="beanslogo mt-5" src="@/assets/logo/Beans_logo_dark.svg" alt="Beans logo">
-                        <form action="#" class="mt-5">
+                        <form 
+                            action="#" 
+                            class="mt-5" 
+                            @submit.prevent="handleSubmit"
+                            >
                             <div class="form-group row">
                                 <div class="col col-12 col-sm-3 d-flex align-items-center">
                                     <label for="name-input" class="mb-0">
@@ -25,7 +29,11 @@
                                     </label>
                                 </div>
                                 <div class="col col-12 col-sm-9">
-                                    <input type="text" class="form-control" id="name-input">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="name-input"
+                                        v-model="formData.name">
                                 </div>
                             </div>
 
@@ -37,7 +45,12 @@
                                     </label>
                                 </div>
                                 <div class="col col-12 col-sm-9">
-                                    <input type="email" class="form-control" id="email-input">
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="email-input"
+                                        v-model="formData.email"
+                                    >
                                 </div>
                             </div>
 
@@ -48,7 +61,12 @@
                                     </label>
                                 </div>
                                 <div class="col col-12 col-sm-9">
-                                    <input type="tel" class="form-control" id="phone-input">
+                                    <input 
+                                        type="tel" 
+                                        class="form-control" 
+                                        id="phone-input"
+                                        v-model="formData.phone"
+                                    >
                                 </div>
                             </div>
 
@@ -60,8 +78,14 @@
                                     </label>
                                 </div>
                                 <div class="col col-12">
-                                    <textarea class="form-control" name="message" id="message" rows="5"
-                                        placeholder="Leave your comments here"></textarea>
+                                    <textarea 
+                                        class="form-control" 
+                                        name="message" 
+                                        id="message" 
+                                        rows="5"
+                                        placeholder="Leave your comments here"
+                                        v-model="formData.message"
+                                        ></textarea>
                                 </div>
                             </div>
 
@@ -86,6 +110,21 @@ export default {
     components: {
         NavBarComponent,
         ProductCard
-    }
+    },
+    data() {
+        return {
+            formData: {
+                name:'',
+                email:'',
+                phone:'',
+                message:''
+            }
+        } 
+    },
+    methods: {
+    handleSubmit() {
+        console.log('Данные формы:', this.formData);
+           }
+    },
 }
 </script>
