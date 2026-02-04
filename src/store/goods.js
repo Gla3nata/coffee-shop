@@ -4,7 +4,7 @@ const goods = {
             {
                 id: 0,
                 name: 'Solimo Coffee Beans 2kg',
-                price: 10.73,
+                price: 7.73,
                 image: 'coffee-1.jpg'
             },
             {
@@ -28,7 +28,7 @@ const goods = {
             {
                 id: 4,
                 name: 'House Espresso 2kg',
-                price: 35.99,
+                price: 100.99,
                 image: 'coffee-2.jpg'
             },
             {
@@ -42,6 +42,12 @@ const goods = {
     getters: {
         getGoods(state) {
             return state.goods
+        },
+        getProductById(state) {
+            return (id) => {
+                return state.goods.find((card) => card.id === +id)
+            }
+
         },
     }
 }
