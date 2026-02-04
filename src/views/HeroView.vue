@@ -1,6 +1,6 @@
 <template>
     <main>
-      <div class="preview">
+        <div class="preview">
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -13,15 +13,11 @@
                         <img class="beanslogo" src="@/assets/logo/Beans_logo.svg" alt="Beans logo">
                         <div class="preview__subtitle">We makes every day full of energy and taste</div>
                         <div class="preview__subtitle">Want to try our beans?</div>
-                        <a 
-                        href="./coffeepage.html" 
-                        class="preview__btn"
-                        @click.prevent ="smoothScroll"
-                        >More</a>
+                        <a href="./coffeepage.html" class="preview__btn" @click.prevent="smoothScroll">More</a>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
         <section class="about" id="about" ref="about">
             <div class="container">
                 <div class="row">
@@ -51,20 +47,14 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
-                           <product-card 
-                           v-for="card in bestsellers"
-                           :key="card.id"
-                           classItem="best__item"
-                           :name="card.name"
-                           :price="card.price"
-                           :image="card.image"
-                           />
+                            <product-card v-for="card in bestsellers" :key="card.id" classItem="best__item"
+                                :name="card.name" :price="card.price" :image="card.image" />
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-  
+
     </main>
 </template>
 
@@ -73,39 +63,17 @@ import NavBarComponent from '@/components/NavBarComponent.vue'
 import ProductCard from '@/components/ProductCard.vue'
 
 export default {
-    components: {
-        NavBarComponent,
-        ProductCard 
+    components: { NavBarComponent, ProductCard },
+    computed: {
+        bestsellers() {
+            return this.$store.getters['getBestsellers']
+        }
     },
-    data() {
-        return {
-            bestsellers: [
-                {
-                    id: 0,
-                    name:'Solimo Coffee Beans 2kg',
-                    price: 10.73,
-                    image: 'coffee-1.jpg'
-                },
-                {
-                    id: 1,
-                    name:'Presto Coffee Beans 1kg',
-                    price: 15.99,
-                     image: 'coffee-2.jpg'
-                },
-                {
-                    id: 2,
-                    name:'AROMISTICO Coffee 1kg',
-                    price: 6.99,
-                     image: 'coffee-3.jpg'
-                },
-            ]
-        };
-    },
-    methods:{
-        smoothScroll(){
+    methods: {
+        smoothScroll() {
             this.$refs.OurBest.scrollIntoView({
-                block:'start',
-                behavior:'smooth'
+                block: 'start',
+                behavior: 'smooth'
             })
         }
     },
