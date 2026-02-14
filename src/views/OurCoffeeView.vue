@@ -95,6 +95,7 @@ export default {
         .then(res => res.json())
         .then(data => {
             this.$store.dispatch("setCoffeData", data)
+           
         })
     }
 }
