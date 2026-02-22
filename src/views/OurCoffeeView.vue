@@ -35,8 +35,14 @@
                     <div class="col-lg-4 offset-2">
                         <form action="#" class="shop__search">
                             <label class="shop__search-label" for="filter">Looking for</label>
-                            <input id="filter" type="text" placeholder="start typing here..."
-                                class="shop__search-input">
+                            <input 
+                                id="filter" 
+                                type="text" 
+                                placeholder="start typing here..."
+                                class="shop__search-input"
+                                v-model="searchvalue"
+                            />
+                            {{searchvalue}}
                         </form>
                     </div>
                     <div class="col-lg-4">
@@ -45,9 +51,9 @@
                                 Or filter
                             </div>
                             <div class="shop__filter-group">
-                                <button class="shop__filter-btn">Brazil</button>
-                                <button class="shop__filter-btn">Kenya</button>
-                                <button class="shop__filter-btn">Columbia</button>
+                                <button class="shop__filter-btn" @click="onSort('Brazil')">Brazil</button>
+                                <button class="shop__filter-btn" @click="onSort('Kenya')">Kenya</button>
+                                <button class="shop__filter-btn" @click="onSort('Columbia')">Columbia</button>
                             </div>
                         </div>
                     </div>
@@ -62,7 +68,6 @@
                                 :card="card" 
                                 @onNavigate="navigate"
                             />
-                            <!-- /our-coffee/item -->
                         </div>
                     </div>
                 </div>
@@ -82,6 +87,14 @@ export default {
     computed: {
         coffee() {
             return this.$store.getters['getCoffee']
+        },
+        searchvalue: {
+            set(value) {
+                this.$store.dispatch("setSearchValue", value)
+            },
+            get() {
+                return this.$store.getters['getSearchValue']
+            }
         }
     },
     data() {
@@ -97,6 +110,11 @@ export default {
             this.$store.dispatch("setCoffeData", data)
            
         })
+    },
+    methods: {
+        onSort(value) {
+             this.$store.dispatch("setSortValue", value)
+        }
     }
 }
 </script>
